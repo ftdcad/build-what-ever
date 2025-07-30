@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { TemperatureGauge } from "@/components/TemperatureGauge";
+import ContextWindowDemo from "@/components/ContextWindowDemo";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("overview");
@@ -136,24 +137,7 @@ const Index = () => {
 
             <TemperatureGauge />
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <span className="text-2xl">📏</span>
-                  Context Window
-                </CardTitle>
-                <Badge variant="secondary">Memory Limit</Badge>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-3">
-                  Maximum tokens the AI can process at once.
-                </p>
-                <div className="bg-muted p-3 rounded">
-                  <p className="text-sm font-medium">Typical Sizes:</p>
-                  <p className="text-sm text-muted-foreground">8K, 32K, 128K tokens</p>
-                </div>
-              </CardContent>
-            </Card>
+            <ContextWindowDemo />
 
             <Card>
               <CardHeader>
