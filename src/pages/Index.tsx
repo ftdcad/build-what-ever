@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import { TemperatureGauge } from "@/components/TemperatureGauge";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("overview");
@@ -133,24 +134,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <span className="text-2xl">🌡️</span>
-                  Temperature
-                </CardTitle>
-                <Badge variant="secondary">Creativity Control</Badge>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-3">
-                  Controls randomness in AI responses (0.0-2.0).
-                </p>
-                <div className="bg-muted p-3 rounded">
-                  <p className="text-sm font-medium">Settings:</p>
-                  <p className="text-sm text-muted-foreground">0.1 = Focused, 1.0 = Creative</p>
-                </div>
-              </CardContent>
-            </Card>
+            <TemperatureGauge />
 
             <Card>
               <CardHeader>
