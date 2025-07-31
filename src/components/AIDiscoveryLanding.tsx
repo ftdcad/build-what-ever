@@ -355,7 +355,6 @@ export const AIDiscoveryLanding: React.FC<AIDiscoveryLandingProps> = ({ onComple
           <TabsList className="grid w-full grid-cols-2 mb-12 glass-card h-14">
             <TabsTrigger 
               value="questions" 
-              disabled={isQuestionsComplete}
               className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary text-lg font-medium"
             >
               <Brain className="h-5 w-5 mr-2" />
@@ -363,7 +362,6 @@ export const AIDiscoveryLanding: React.FC<AIDiscoveryLandingProps> = ({ onComple
             </TabsTrigger>
             <TabsTrigger 
               value="solutions" 
-              disabled={!isQuestionsComplete}
               className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary text-lg font-medium"
             >
               <Target className="h-5 w-5 mr-2" />
