@@ -184,58 +184,112 @@ export const AIDiscoveryLanding: React.FC<AIDiscoveryLandingProps> = ({ onComple
   const recommendations = getRecommendations();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            AI Solution Discovery
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute inset-0 wireframe-pattern opacity-30"></div>
+      <div className="absolute inset-0 grid-pattern opacity-20"></div>
+      
+      <div className="relative z-10 container mx-auto px-4 py-12">
+        {/* Hero Section */}
+        <div className="text-center mb-16 animate-slide-up">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 mb-6">
+            <Brain className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">AI Solution Discovery Platform</span>
+          </div>
+          
+          <h1 className="text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              Build Your Perfect
+            </span>
+            <br />
+            <span className="text-foreground">AI Solution</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Let's find the perfect AI solution for your needs. Answer a few questions to get personalized recommendations.
+          
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Transform your business with intelligent AI systems. Our guided discovery process helps you identify, 
+            design, and deploy the perfect AI solution tailored to your specific needs.
           </p>
+          
+          <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-4 w-4 text-primary" />
+              <span>No-code required</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-4 w-4 text-primary" />
+              <span>Enterprise-ready</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-4 w-4 text-primary" />
+              <span>Deploy in minutes</span>
+            </div>
+          </div>
         </div>
 
-        <Tabs value={isQuestionsComplete ? "solutions" : "questions"} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 mb-8">
-            <TabsTrigger value="questions" disabled={isQuestionsComplete}>
+        <Tabs value={isQuestionsComplete ? "solutions" : "questions"} className="max-w-7xl mx-auto">
+          <TabsList className="grid w-full grid-cols-2 mb-12 glass-card h-14">
+            <TabsTrigger 
+              value="questions" 
+              disabled={isQuestionsComplete}
+              className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary text-lg font-medium"
+            >
+              <Brain className="h-5 w-5 mr-2" />
               Discovery Questions
             </TabsTrigger>
-            <TabsTrigger value="solutions" disabled={!isQuestionsComplete}>
+            <TabsTrigger 
+              value="solutions" 
+              disabled={!isQuestionsComplete}
+              className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary text-lg font-medium"
+            >
+              <Target className="h-5 w-5 mr-2" />
               Solution Selection
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="questions" className="space-y-6">
+          <TabsContent value="questions" className="space-y-8">
             {/* Progress */}
-            <Card>
-              <CardHeader>
-                <div className="flex justify-between items-center">
-                  <CardTitle>Question {Math.min(currentStep, questions.length)} of {questions.length}</CardTitle>
-                  <Badge variant="secondary">{Math.round(progress)}% Complete</Badge>
+            <Card className="glass-card animate-slide-up">
+              <CardHeader className="pb-4">
+                <div className="flex justify-between items-center mb-4">
+                  <CardTitle className="text-2xl font-semibold">
+                    Question {Math.min(currentStep, questions.length)} of {questions.length}
+                  </CardTitle>
+                  <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30 px-4 py-2">
+                    {Math.round(progress)}% Complete
+                  </Badge>
                 </div>
-                <Progress value={progress} className="mt-2" />
+                <div className="relative">
+                  <Progress value={progress} className="h-3 bg-secondary" />
+                  <div 
+                    className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-500 ease-out"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
               </CardHeader>
             </Card>
 
             {/* Current Question */}
             {currentStep <= questions.length && (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-2xl">
+              <Card className="glass-card animate-slide-up" style={{ animationDelay: '0.1s' }}>
+                <CardHeader className="pb-6">
+                  <CardTitle className="text-3xl font-bold leading-tight">
                     {questions[currentStep - 1].title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid gap-3">
+                  <div className="grid gap-4">
                     {questions[currentStep - 1].options.map((option, index) => (
                       <Button
                         key={index}
                         variant="outline"
-                        className="justify-start h-auto p-4 text-left"
+                        className="justify-start h-auto p-6 text-left text-lg font-medium border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
                         onClick={() => handleQuestionAnswer(questions[currentStep - 1].id, option)}
                       >
-                        {option}
+                        <div className="flex items-center w-full">
+                          <div className="w-2 h-2 rounded-full bg-primary/30 group-hover:bg-primary transition-colors mr-4"></div>
+                          <span className="flex-1">{option}</span>
+                          <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                        </div>
                       </Button>
                     ))}
                   </div>
@@ -245,20 +299,25 @@ export const AIDiscoveryLanding: React.FC<AIDiscoveryLandingProps> = ({ onComple
 
             {/* Summary of answers */}
             {Object.keys(answers).length > 0 && (
-              <Card>
+              <Card className="glass-card animate-slide-up" style={{ animationDelay: '0.2s' }}>
                 <CardHeader>
-                  <CardTitle>Your Answers So Far</CardTitle>
+                  <CardTitle className="text-xl font-semibold flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-primary" />
+                    Your Discovery Progress
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2">
+                  <div className="grid gap-4 md:grid-cols-2">
                     {Object.entries(answers).map(([questionId, answer]) => {
                       const question = questions.find(q => q.id === questionId);
                       return (
-                        <div key={questionId} className="flex items-start gap-2">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-1 flex-shrink-0" />
-                          <div>
-                            <p className="font-medium">{question?.title}</p>
-                            <p className="text-muted-foreground">{answer}</p>
+                        <div key={questionId} className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+                          <div className="flex items-start gap-3">
+                            <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                            <div className="flex-1">
+                              <p className="font-medium text-sm text-muted-foreground mb-1">{question?.title}</p>
+                              <p className="text-foreground font-medium">{answer}</p>
+                            </div>
                           </div>
                         </div>
                       );
@@ -404,16 +463,26 @@ export const AIDiscoveryLanding: React.FC<AIDiscoveryLandingProps> = ({ onComple
 
             {/* Continue Button */}
             {selectedSolution && (
-              <Card>
-                <CardContent className="pt-6">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <h3 className="font-semibold">Ready to build your {solutionTypes.find(s => s.id === selectedSolution)?.title}?</h3>
-                      <p className="text-muted-foreground">We'll guide you through the setup process step by step.</p>
+              <Card className="glass-card animate-slide-up animate-glow">
+                <CardContent className="p-8">
+                  <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="text-center md:text-left">
+                      <h3 className="text-2xl font-bold mb-2">
+                        Ready to build your {solutionTypes.find(s => s.id === selectedSolution)?.title}?
+                      </h3>
+                      <p className="text-muted-foreground text-lg">
+                        We'll guide you through the setup process with our intelligent model laboratory.
+                      </p>
                     </div>
-                    <Button onClick={handleComplete} size="lg" className="gap-2">
-                      Continue to Model Lab
-                      <ArrowRight className="h-4 w-4" />
+                    <Button 
+                      onClick={handleComplete} 
+                      size="lg" 
+                      className="btn-modern text-lg px-8 py-4 h-auto"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span>Continue to Model Lab</span>
+                        <ArrowRight className="h-5 w-5" />
+                      </div>
                     </Button>
                   </div>
                 </CardContent>
