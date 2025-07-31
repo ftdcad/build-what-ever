@@ -17,6 +17,9 @@ import {
   Circle
 } from "lucide-react";
 
+// Import discovery component
+import { AIDiscoveryLanding } from "./AIDiscoveryLanding";
+
 // Import existing components - we'll transform these
 import { TemperatureGauge } from "./TemperatureGauge";
 import { ContextWindowDemo } from "./ContextWindowDemo";
@@ -48,8 +51,9 @@ interface ProjectConfig {
 }
 
 const AIBuilderSystem = () => {
-  const [mode, setMode] = useState<"education" | "builder">("builder");
+  const [mode, setMode] = useState<"discovery" | "education" | "builder">("discovery");
   const [activeStep, setActiveStep] = useState("project-setup");
+  const [discoveryData, setDiscoveryData] = useState<any>(null);
   const [projectConfig, setProjectConfig] = useState<ProjectConfig>({
     id: "",
     name: "",
@@ -154,6 +158,20 @@ const AIBuilderSystem = () => {
 
   const updateProjectConfig = (updates: Partial<ProjectConfig>) => {
     setProjectConfig(prev => ({ ...prev, ...updates }));
+  };
+
+  const handleDiscoveryComplete = (data: any) => {
+    setDiscoveryData(data);
+    // Pre-populate project config with discovery insights
+    if (data.solutionDetails) {
+      updateProjectConfig({
+        useCase: data.solutionDetails.title,
+        description: data.solutionDetails.description
+      });
+    }
+    // Move to model comparison lab first, then to builder
+    setActiveStep("model-config");
+    setMode("builder");
   };
 
   const renderBuilderMode = () => {
@@ -343,6 +361,11 @@ const AIBuilderSystem = () => {
     );
   };
 
+  // Render discovery mode first, then builder/education
+  if (mode === "discovery") {
+    return <AIDiscoveryLanding onComplete={handleDiscoveryComplete} />;
+  }
+  
   return mode === "builder" ? renderBuilderMode() : renderEducationMode();
 };
 
