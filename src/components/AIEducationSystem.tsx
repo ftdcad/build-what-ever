@@ -13,6 +13,8 @@ import { ChunkingStrategyDemo } from "./ChunkingStrategyDemo";
 import { RAGSimulator } from "./RAGSimulator";
 import { ModelComparison } from "./ModelComparison";
 import { HallucinationDetector } from "./HallucinationDetector";
+import { DatabaseComparison } from "./DatabaseComparison";
+import { QueryComparison } from "./QueryComparison";
 
 export const AIEducationSystem = () => {
   const [activeSection, setActiveSection] = useState("fundamentals");
@@ -26,9 +28,16 @@ export const AIEducationSystem = () => {
       components: ["temperature", "context", "embeddings"]
     },
     {
+      id: "databases",
+      title: "Data Storage & Databases",
+      icon: <Database className="w-5 h-5" />,
+      description: "SQL vs NoSQL databases, query comparison, and data modeling",
+      components: ["database-comparison", "query-comparison", "data-modeling"]
+    },
+    {
       id: "rag",
       title: "RAG & Retrieval",
-      icon: <Database className="w-5 h-5" />,
+      icon: <BookOpen className="w-5 h-5" />,
       description: "Retrieval Augmented Generation and knowledge systems",
       components: ["rag-simulator", "chunking", "vector-search"]
     },
@@ -111,6 +120,22 @@ export const AIEducationSystem = () => {
                 <div className="grid gap-6">
                   <TemperatureGauge />
                   <ContextWindowDemo />
+                </div>
+              </div>
+            )}
+
+            {activeSection === "databases" && (
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">Data Storage & Databases</h2>
+                  <p className="text-muted-foreground mb-6">
+                    Understand SQL vs NoSQL databases, query patterns, and when to use each approach.
+                  </p>
+                </div>
+                
+                <div className="grid gap-6">
+                  <DatabaseComparison />
+                  <QueryComparison />
                 </div>
               </div>
             )}
