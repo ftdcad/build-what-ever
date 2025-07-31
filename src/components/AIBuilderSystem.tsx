@@ -19,7 +19,7 @@ import {
 
 // Import existing components - we'll transform these
 import { TemperatureGauge } from "./TemperatureGauge";
-import ContextWindowDemo from "./ContextWindowDemo";
+import { ContextWindowDemo } from "./ContextWindowDemo";
 import { RAGSimulator } from "./RAGSimulator";
 import { ModelComparison } from "./ModelComparison";
 import { HallucinationDetector } from "./HallucinationDetector";

@@ -151,4 +151,4 @@ const ContextWindowDemo = () => {
   );
 };
 
-export default ContextWindowDemo;
+export { ContextWindowDemo };

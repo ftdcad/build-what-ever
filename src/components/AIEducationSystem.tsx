@@ -8,7 +8,7 @@ import { BookOpen, Brain, Zap, Shield, Settings, Database, Code, TrendingUp } fr
 
 // Import all demo components
 import { TemperatureGauge } from "./TemperatureGauge";
-import ContextWindowDemo from "./ContextWindowDemo";
+import { ContextWindowDemo } from "./ContextWindowDemo";
 import { ChunkingStrategyDemo } from "./ChunkingStrategyDemo";
 import { RAGSimulator } from "./RAGSimulator";
 import { ModelComparison } from "./ModelComparison";
