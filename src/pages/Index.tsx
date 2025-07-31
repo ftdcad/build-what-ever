@@ -1,11 +1,7 @@
-import { ChunkingStrategyDemo } from "@/components/ChunkingStrategyDemo";
+import { AIEducationSystem } from "@/components/AIEducationSystem";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
-      <ChunkingStrategyDemo />
-    </div>
-  );
+  return <AIEducationSystem />;
 };
 
 export default Index;
