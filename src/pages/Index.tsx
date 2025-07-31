@@ -1,7 +1,7 @@
-import { AIBuilderSystem } from "@/components/AIBuilderSystem";
+import { AIEducationSystem } from "@/components/AIEducationSystem";
 
 const Index = () => {
-  return <AIBuilderSystem />;
+  return <AIEducationSystem />;
 };
 
 export default Index;
