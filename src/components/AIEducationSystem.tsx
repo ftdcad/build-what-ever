@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Brain, Zap, Shield, Settings, Database, Code, TrendingUp, Star, Play } from "lucide-react";
+import { BookOpen, Brain, Zap, Shield, Settings, Database, Code, TrendingUp, Star, Play, Target, Users, Crown } from "lucide-react";
 
 // Import all demo components
 import { TemperatureGauge } from "./TemperatureGauge";
@@ -32,35 +32,54 @@ import { ErrorHandlingPlayground } from "./ErrorHandlingPlayground";
 import { InteractiveGettingStarted } from "./InteractiveGettingStarted";
 import { AIGlossary } from "./AIGlossary";
 import { LearningPath } from "./LearningPath";
+import { PromptEngineeringFundamentals } from "./PromptEngineeringFundamentals";
 
 export const AIEducationSystem = () => {
-  const [activeSection, setActiveSection] = useState("getting-started");
+  const [activeSection, setActiveSection] = useState("foundation");
 
   const sections = [
+    // Foundation Level (30 min)
     {
-      id: "getting-started",
-      title: "Getting Started",
+      id: "foundation",
+      title: "🎯 Foundation (30 min)",
       icon: <Play className="w-5 h-5" />,
       description: "Complete beginner's guide to AI fundamentals and concepts",
       components: []
     },
+    // Practitioner Level (45 min) - NEW PROMPT ENGINEERING FOCUS
+    {
+      id: "practitioner",
+      title: "⚡ Practitioner (45 min)",
+      icon: <Target className="w-5 h-5" />,
+      description: "Prompt engineering mastery - prevent AI overreach and hallucination",
+      components: []
+    },
+    // Power User Level (60 min)
+    {
+      id: "power-user",
+      title: "👑 Power User (60 min)",
+      icon: <Crown className="w-5 h-5" />,
+      description: "Advanced prompting patterns and multi-model workflows",
+      components: []
+    },
+    // Reference Library
     {
       id: "glossary",
-      title: "Glossary & Terminology",
+      title: "📚 Glossary",
       icon: <BookOpen className="w-5 h-5" />,
       description: "Searchable definitions with examples and cross-references",
       components: []
     },
     {
       id: "learning-path",
-      title: "Learning Path Guide",
+      title: "🗺️ Learning Path",
       icon: <Star className="w-5 h-5" />,
       description: "Structured progression from beginner to advanced concepts",
       components: []
     },
     {
       id: "fundamentals",
-      title: "Core AI Concepts",
+      title: "🧠 Core AI Concepts",
       icon: <Brain className="w-5 h-5" />,
       description: "Essential AI/ML terminology and foundational concepts with interactive demos",
       components: ["temperature", "context", "embeddings"]
@@ -124,15 +143,15 @@ export const AIEducationSystem = () => {
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-8 h-8 text-primary" />
             <div>
-              <h1 className="text-3xl font-bold">AI Assistant Design Guide</h1>
-              <p className="text-muted-foreground">Complete guide to understanding AI & automation</p>
+              <h1 className="text-3xl font-bold">AI Prompt Engineering Mastery</h1>
+              <p className="text-muted-foreground">Prevent AI overreach and hallucination through structured prompting</p>
             </div>
           </div>
           <div className="flex gap-2 text-sm">
-            <Badge variant="secondary">RAG Systems</Badge>
-            <Badge variant="secondary">Model Selection</Badge>
-            <Badge variant="secondary">Safety & Control</Badge>
-            <Badge variant="secondary">Interactive Demos</Badge>
+            <Badge variant="secondary">Prompt Engineering</Badge>
+            <Badge variant="secondary">Claude Case Study</Badge>
+            <Badge variant="secondary">CLEAR Framework</Badge>
+            <Badge variant="secondary">Interactive Practice</Badge>
           </div>
         </div>
       </div>
@@ -160,8 +179,34 @@ export const AIEducationSystem = () => {
         {/* Main Content */}
         <div className="flex-1">
           <div className="container mx-auto px-6 py-6">
-            {activeSection === "getting-started" && (
+            {activeSection === "foundation" && (
               <InteractiveGettingStarted />
+            )}
+
+            {activeSection === "practitioner" && (
+              <PromptEngineeringFundamentals />
+            )}
+
+            {activeSection === "power-user" && (
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">Power User Level (60 minutes)</h2>
+                  <p className="text-muted-foreground mb-6">
+                    Advanced prompting patterns, multi-model workflows, and semantic space navigation.
+                  </p>
+                </div>
+                
+                <Card className="p-6">
+                  <div className="text-center space-y-4">
+                    <Crown className="w-12 h-12 text-primary mx-auto" />
+                    <h3 className="text-xl font-semibold">Advanced Prompting Mastery</h3>
+                    <p className="text-muted-foreground">
+                      Chain-of-thought reasoning, few-shot learning, semantic space navigation, and reusable template systems.
+                    </p>
+                    <Badge variant="outline">Coming Soon</Badge>
+                  </div>
+                </Card>
+              </div>
             )}
 
             {activeSection === "glossary" && (
