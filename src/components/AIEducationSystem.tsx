@@ -19,6 +19,10 @@ import { CompressionAlgorithmsDemo } from "./CompressionAlgorithmsDemo";
 import { AICompressionTechniques } from "./AICompressionTechniques";
 import { RAGCompressionDemo } from "./RAGCompressionDemo";
 import { CompressionLab } from "./CompressionLab";
+import { SchemaFundamentals } from "./SchemaFundamentals";
+import { RelationalConcepts } from "./RelationalConcepts";
+import { ACIDvsBase } from "./ACIDvsBase";
+import { DataModelingWorkshop } from "./DataModelingWorkshop";
 
 export const AIEducationSystem = () => {
   const [activeSection, setActiveSection] = useState("fundamentals");
@@ -40,10 +44,10 @@ export const AIEducationSystem = () => {
     },
     {
       id: "databases",
-      title: "Data Storage & Databases",
+      title: "Database Fundamentals",
       icon: <Database className="w-5 h-5" />,
-      description: "SQL vs NoSQL databases, query comparison, and data modeling",
-      components: ["database-comparison", "query-comparison", "data-modeling"]
+      description: "Complete guide to schemas, relationships, ACID vs BASE, and data modeling",
+      components: ["schema-fundamentals", "relational-concepts", "acid-base", "data-modeling", "database-comparison", "query-comparison"]
     },
     {
       id: "rag",
@@ -156,13 +160,17 @@ export const AIEducationSystem = () => {
             {activeSection === "databases" && (
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold mb-2">Data Storage & Databases</h2>
+                  <h2 className="text-2xl font-bold mb-2">Database Fundamentals</h2>
                   <p className="text-muted-foreground mb-6">
-                    Understand SQL vs NoSQL databases, query patterns, and when to use each approach.
+                    Master database concepts from schemas and relationships to ACID properties and data modeling strategies.
                   </p>
                 </div>
                 
                 <div className="grid gap-6">
+                  <SchemaFundamentals />
+                  <RelationalConcepts />
+                  <ACIDvsBase />
+                  <DataModelingWorkshop />
                   <DatabaseComparison />
                   <QueryComparison />
                 </div>
