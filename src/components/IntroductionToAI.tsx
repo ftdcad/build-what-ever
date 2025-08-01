@@ -5,7 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { ChevronRight, Heart, Coffee, Shield, ArrowRight, User, Zap, Crown } from "lucide-react";
 
-export const IntroductionToAI = () => {
+interface IntroductionToAIProps {
+  onComplete?: (userLevel: string) => void;
+}
+
+export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [userLevel, setUserLevel] = useState<string | null>(null);
 
@@ -345,6 +349,12 @@ export const IntroductionToAI = () => {
     }
   };
 
+  const startLearningJourney = () => {
+    if (userLevel && onComplete) {
+      onComplete(userLevel);
+    }
+  };
+
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       {/* Progress */}
@@ -377,7 +387,11 @@ export const IntroductionToAI = () => {
         </Button>
         
         {currentStep === steps.length - 1 ? (
-          <Button className="flex items-center gap-2">
+          <Button 
+            onClick={startLearningJourney}
+            disabled={!userLevel}
+            className="flex items-center gap-2"
+          >
             Start Learning Journey
             <ChevronRight className="w-4 h-4" />
           </Button>

@@ -41,6 +41,23 @@ import { MakeAIDailyCompanion } from "./MakeAIDailyCompanion";
 export const AIEducationSystem = () => {
   const [activeSection, setActiveSection] = useState("introduction");
 
+  const handleIntroductionComplete = (userLevel: string) => {
+    // Navigate to the appropriate section based on user level
+    switch (userLevel) {
+      case "beginner":
+        setActiveSection("foundation");
+        break;
+      case "intermediate":
+        setActiveSection("practitioner");
+        break;
+      case "advanced":
+        setActiveSection("power-user");
+        break;
+      default:
+        setActiveSection("foundation");
+    }
+  };
+
   const sections = [
     // Introduction Level (10 min) - NEW
     {
@@ -208,7 +225,7 @@ export const AIEducationSystem = () => {
         <div className="flex-1">
           <div className="container mx-auto px-6 py-6">
             {activeSection === "introduction" && (
-              <IntroductionToAI />
+              <IntroductionToAI onComplete={handleIntroductionComplete} />
             )}
 
             {activeSection === "safety-thinking" && (
