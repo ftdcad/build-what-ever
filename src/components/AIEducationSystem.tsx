@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Brain, Zap, Shield, Settings, Database, Code, TrendingUp, Star, Play, Target, Users, Crown } from "lucide-react";
+import { BookOpen, Brain, Zap, Shield, Settings, Database, Code, TrendingUp, Star, Play, Target, Users, Crown, Calendar } from "lucide-react";
 
 // Import all demo components
 import { TemperatureGauge } from "./TemperatureGauge";
@@ -36,6 +36,7 @@ import { AIGlossary } from "./AIGlossary";
 import { LearningPath } from "./LearningPath";
 import { PromptEngineeringFundamentals } from "./PromptEngineeringFundamentals";
 import { AISafetyCriticalThinking } from "./AISafetyCriticalThinking";
+import { MakeAIDailyCompanion } from "./MakeAIDailyCompanion";
 
 export const AIEducationSystem = () => {
   const [activeSection, setActiveSection] = useState("introduction");
@@ -55,6 +56,14 @@ export const AIEducationSystem = () => {
       title: "🚦 AI Safety & Critical Thinking (15 min)",
       icon: <Shield className="w-5 h-5" />,
       description: "Learn why confident AI answers need verification and master cross-checking techniques",
+      components: []
+    },
+    // Daily Companion (20 min + Week 1) - NEW
+    {
+      id: "daily-companion",
+      title: "📅 Make AI Your Daily Companion (Week 1)",
+      icon: <Calendar className="w-5 h-5" />,
+      description: "Build the habit FIRST, then customize. You can't rearrange a kitchen you've only cooked in once!",
       components: []
     },
     // Foundation Level (30 min)
@@ -204,6 +213,10 @@ export const AIEducationSystem = () => {
 
             {activeSection === "safety-thinking" && (
               <AISafetyCriticalThinking />
+            )}
+
+            {activeSection === "daily-companion" && (
+              <MakeAIDailyCompanion />
             )}
 
             {activeSection === "foundation" && (
