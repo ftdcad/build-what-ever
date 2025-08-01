@@ -29,7 +29,7 @@ import { RateLimitingDemo } from "./RateLimitingDemo";
 import { APISecurityScanner } from "./APISecurityScanner";
 import { APICostCalculator } from "./APICostCalculator";
 import { ErrorHandlingPlayground } from "./ErrorHandlingPlayground";
-import { GettingStarted } from "./GettingStarted";
+import { InteractiveGettingStarted } from "./InteractiveGettingStarted";
 import { AIGlossary } from "./AIGlossary";
 import { LearningPath } from "./LearningPath";
 
@@ -161,7 +161,7 @@ export const AIEducationSystem = () => {
         <div className="flex-1">
           <div className="container mx-auto px-6 py-6">
             {activeSection === "getting-started" && (
-              <GettingStarted />
+              <InteractiveGettingStarted />
             )}
 
             {activeSection === "glossary" && (
