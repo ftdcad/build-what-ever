@@ -35,6 +35,7 @@ import { IntroductionToAI } from "./IntroductionToAI";
 import { AIGlossary } from "./AIGlossary";
 import { LearningPath } from "./LearningPath";
 import { PromptEngineeringFundamentals } from "./PromptEngineeringFundamentals";
+import { AISafetyCriticalThinking } from "./AISafetyCriticalThinking";
 
 export const AIEducationSystem = () => {
   const [activeSection, setActiveSection] = useState("introduction");
@@ -46,6 +47,14 @@ export const AIEducationSystem = () => {
       title: "🤝 Introduction to AI (10 min)",
       icon: <Users className="w-5 h-5" />,
       description: "Safe space for beginners - analogies, vulnerability awareness, and path selection",
+      components: []
+    },
+    // AI Safety & Critical Thinking (15 min) - NEW
+    {
+      id: "safety-thinking",
+      title: "🚦 AI Safety & Critical Thinking (15 min)",
+      icon: <Shield className="w-5 h-5" />,
+      description: "Learn why confident AI answers need verification and master cross-checking techniques",
       components: []
     },
     // Foundation Level (30 min)
@@ -191,6 +200,10 @@ export const AIEducationSystem = () => {
           <div className="container mx-auto px-6 py-6">
             {activeSection === "introduction" && (
               <IntroductionToAI />
+            )}
+
+            {activeSection === "safety-thinking" && (
+              <AISafetyCriticalThinking />
             )}
 
             {activeSection === "foundation" && (
