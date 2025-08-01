@@ -23,6 +23,12 @@ import { SchemaFundamentals } from "./SchemaFundamentals";
 import { RelationalConcepts } from "./RelationalConcepts";
 import { ACIDvsBase } from "./ACIDvsBase";
 import { DataModelingWorkshop } from "./DataModelingWorkshop";
+import { APIKeyManagement } from "./APIKeyManagement";
+import { AuthenticationMethods } from "./AuthenticationMethods";
+import { RateLimitingDemo } from "./RateLimitingDemo";
+import { APISecurityScanner } from "./APISecurityScanner";
+import { APICostCalculator } from "./APICostCalculator";
+import { ErrorHandlingPlayground } from "./ErrorHandlingPlayground";
 
 export const AIEducationSystem = () => {
   const [activeSection, setActiveSection] = useState("fundamentals");
@@ -62,6 +68,13 @@ export const AIEducationSystem = () => {
       icon: <Zap className="w-5 h-5" />,
       description: "AI model comparison and selection strategies",
       components: ["model-comparison", "quantization", "fine-tuning"]
+    },
+    {
+      id: "api-security",
+      title: "API Keys & Authentication",
+      icon: <Shield className="w-5 h-5" />,
+      description: "Secure API key management, authentication methods, and error handling",
+      components: ["api-key-management", "authentication-methods", "rate-limiting", "security-scanner", "cost-calculator", "error-handling"]
     },
     {
       id: "safety",
@@ -204,6 +217,26 @@ export const AIEducationSystem = () => {
                 
                 <div className="grid gap-6">
                   <ModelComparison />
+                </div>
+              </div>
+            )}
+
+            {activeSection === "api-security" && (
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">API Keys & Authentication</h2>
+                  <p className="text-muted-foreground mb-6">
+                    Master secure API key management, authentication methods, cost optimization, and robust error handling for production AI applications.
+                  </p>
+                </div>
+                
+                <div className="grid gap-6">
+                  <APIKeyManagement />
+                  <AuthenticationMethods />
+                  <RateLimitingDemo />
+                  <APISecurityScanner />
+                  <APICostCalculator />
+                  <ErrorHandlingPlayground />
                 </div>
               </div>
             )}
