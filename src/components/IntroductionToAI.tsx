@@ -311,13 +311,13 @@ export const IntroductionToAI = () => {
             )}
           </div>
 
-          <Card className="border-yellow-200 bg-yellow-50/50 dark:border-yellow-800 dark:bg-yellow-950/50">
+          <Card className="border-yellow-200 bg-yellow-50/50 dark:border-yellow-700 dark:bg-yellow-900/20">
             <CardContent className="pt-4">
               <div className="flex items-start gap-3">
                 <div className="text-yellow-600 mt-1">💡</div>
                 <div>
-                  <h4 className="font-semibold text-yellow-800 dark:text-yellow-200 mb-1">Pro Tip</h4>
-                  <p className="text-sm text-yellow-700 dark:text-yellow-300">
+                  <h4 className="font-semibold text-yellow-800 dark:text-yellow-100 mb-1">Pro Tip</h4>
+                  <p className="text-sm text-yellow-700 dark:text-yellow-50">
                     Even if you're advanced, the Practitioner section contains case studies of real AI failures 
                     that can help you avoid expensive mistakes. It's worth a quick review!
                   </p>

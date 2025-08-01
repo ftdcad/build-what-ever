@@ -387,16 +387,16 @@ ORDER BY s.name;`
                   </Card>
                 ))}
 
-                <Card className="border-yellow-200 bg-yellow-50">
+                <Card className="border-yellow-200 bg-yellow-50 dark:border-yellow-700 dark:bg-yellow-900/20">
                   <CardHeader>
-                    <CardTitle className="text-yellow-800">NoSQL and Normalization</CardTitle>
+                    <CardTitle className="text-yellow-800 dark:text-yellow-100">NoSQL and Normalization</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-yellow-700">
+                    <p className="text-sm text-yellow-700 dark:text-yellow-50">
                       NoSQL databases often deliberately <strong>denormalize</strong> data for performance. 
                       Instead of normalization, NoSQL focuses on:
                     </p>
-                    <ul className="mt-2 space-y-1 text-sm text-yellow-700">
+                    <ul className="mt-2 space-y-1 text-sm text-yellow-700 dark:text-yellow-50">
                       <li>• <strong>Embedding related data</strong> to reduce joins</li>
                       <li>• <strong>Duplicating data</strong> across documents for faster reads</li>
                       <li>• <strong>Query-optimized structures</strong> over storage efficiency</li>

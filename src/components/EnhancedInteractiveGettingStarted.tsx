@@ -263,8 +263,8 @@ export const EnhancedInteractiveGettingStarted = () => {
           {showPractice && lesson.practiceTask && (
             <div className="space-y-4">
               <h3 className="font-semibold text-lg">Practice Task</h3>
-              <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
-                <p className="text-yellow-800">{lesson.practiceTask}</p>
+              <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400 dark:bg-yellow-900/20 dark:border-yellow-600">
+                <p className="text-yellow-800 dark:text-yellow-100">{lesson.practiceTask}</p>
               </div>
               
               <div className="flex gap-2">

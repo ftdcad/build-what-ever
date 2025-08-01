@@ -727,9 +727,9 @@ db.posts.updateOne(
                 </Card>
               </div>
 
-              <Card className="border-yellow-200 bg-yellow-50">
+              <Card className="border-yellow-200 bg-yellow-50 dark:border-yellow-700 dark:bg-yellow-900/20">
                 <CardHeader>
-                  <CardTitle className="text-yellow-800">When to Use Which Approach</CardTitle>
+                  <CardTitle className="text-yellow-800 dark:text-yellow-100">When to Use Which Approach</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-6">
