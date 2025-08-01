@@ -179,8 +179,9 @@ export const AISafetyCriticalThinking = () => {
 
       {/* Cross-Checking Workshop */}
       <Tabs defaultValue="examples" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="examples">Real Examples</TabsTrigger>
+          <TabsTrigger value="collaborative">AI vs AI</TabsTrigger>
           <TabsTrigger value="practice">Practice Lab</TabsTrigger>
           <TabsTrigger value="guide">Step-by-Step Guide</TabsTrigger>
         </TabsList>
@@ -235,6 +236,107 @@ export const AISafetyCriticalThinking = () => {
           </Card>
         </TabsContent>
 
+        <TabsContent value="collaborative" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Users className="w-5 h-5" />
+                🤝 Leveraging One AI Against Another
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {/* Kitchen Analogy Extension */}
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 p-4 rounded-lg">
+                  <h4 className="font-semibold mb-2">🍳 The Multiple Chefs Approach</h4>
+                  <p className="text-sm">
+                    <strong>Using One AI:</strong> One chef making your meal<br/>
+                    <strong>Using Multiple AIs:</strong> Multiple chefs tasting and improving the dish
+                  </p>
+                  <div className="mt-2 text-xs text-muted-foreground">
+                    • Chef 1: "Needs more salt" • Chef 2: "Actually, it needs acid, not salt" → You get the best meal!
+                  </div>
+                </div>
+
+                {/* Debate Format Example */}
+                <div className="space-y-4">
+                  <h4 className="font-semibold">Example: Investment Advice Debate</h4>
+                  <div className="space-y-3">
+                    <div className="bg-green-50 dark:bg-green-950/20 p-3 rounded border-l-4 border-green-400">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-6 h-6 rounded-full bg-green-600 text-white flex items-center justify-center text-xs font-bold">1</div>
+                        <strong>AI #1:</strong> "Yes, invest in solar stocks because..."
+                      </div>
+                      <p className="text-sm ml-8">Growing market, government incentives, environmental trends</p>
+                    </div>
+                    
+                    <div className="bg-red-50 dark:bg-red-950/20 p-3 rounded border-l-4 border-red-400">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-6 h-6 rounded-full bg-red-600 text-white flex items-center justify-center text-xs font-bold">2</div>
+                        <strong>AI #2:</strong> "Challenge this advice. What risks is it missing?"
+                      </div>
+                      <p className="text-sm ml-8">Market volatility, policy changes, supply chain issues, competition</p>
+                    </div>
+                    
+                    <div className="bg-blue-50 dark:bg-blue-950/20 p-3 rounded border-l-4 border-blue-400">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">3</div>
+                        <strong>Back to AI #1:</strong> "Defend your position against these concerns"
+                      </div>
+                      <p className="text-sm ml-8">Diversification strategies, long-term outlook, risk mitigation</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Collaboration Patterns */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Card className="p-4">
+                    <h5 className="font-semibold mb-2">🔍 The Fact-Checker</h5>
+                    <p className="text-sm text-muted-foreground mb-2">AI #1: Makes a claim</p>
+                    <p className="text-sm text-muted-foreground">AI #2: "Verify this claim and cite sources"</p>
+                  </Card>
+                  
+                  <Card className="p-4">
+                    <h5 className="font-semibold mb-2">😈 The Devil's Advocate</h5>
+                    <p className="text-sm text-muted-foreground mb-2">AI #1: Gives advice</p>
+                    <p className="text-sm text-muted-foreground">AI #2: "Argue against this advice"</p>
+                  </Card>
+                  
+                  <Card className="p-4">
+                    <h5 className="font-semibold mb-2">🎓 The Simplifier</h5>
+                    <p className="text-sm text-muted-foreground mb-2">AI #1: Technical explanation</p>
+                    <p className="text-sm text-muted-foreground">AI #2: "Explain this to a 10-year-old"</p>
+                  </Card>
+                  
+                  <Card className="p-4">
+                    <h5 className="font-semibold mb-2">🔬 The Expander</h5>
+                    <p className="text-sm text-muted-foreground mb-2">AI #1: Brief answer</p>
+                    <p className="text-sm text-muted-foreground">AI #2: "What important details are missing?"</p>
+                  </Card>
+                </div>
+
+                {/* Time Investment Reality Check */}
+                <Alert>
+                  <AlertDescription>
+                    <strong>⏱️ Time Investment Reality:</strong> Single AI = 30 seconds | Collaborative AI = 2-3 minutes<br/>
+                    But consider: Wrong answer costs hours/days/money. Better answer value is priceless.
+                  </AlertDescription>
+                </Alert>
+
+                {/* Blind Spots Visual */}
+                <div className="bg-muted/50 p-4 rounded-lg">
+                  <h5 className="font-semibold mb-2">🎯 The Blind Spots Concept</h5>
+                  <div className="space-y-2 text-sm">
+                    <p>AI Model A sees: 🔵🔵⚪⚪ (some aspects clearly)</p>
+                    <p>AI Model B sees: ⚪🔵🔵⚪ (different aspects clearly)</p>
+                    <p className="font-medium">Together you see: 🔵🔵🔵⚪ (more complete picture!)</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
         <TabsContent value="practice" className="space-y-4">
           <Card>
             <CardHeader>
@@ -271,6 +373,15 @@ export const AISafetyCriticalThinking = () => {
                     <p className="text-sm"><strong>Pro Tip:</strong> {practiceScenarios[practiceStep].tips}</p>
                   </div>
 
+                  <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg">
+                    <h5 className="font-semibold mb-2">🌱 Your First Collaboration (Try This Now!):</h5>
+                    <ol className="text-sm space-y-1 mb-3">
+                      <li>1. Ask ChatGPT: "{practiceScenarios[practiceStep].question}"</li>
+                      <li>2. Copy answer to Claude: "What risks or concerns are missing from this advice?"</li>
+                      <li>3. Compare what you learn!</li>
+                    </ol>
+                  </div>
+                  
                   <Button className="w-full" variant="outline">
                     Open in New Tab to Test Multiple AIs
                   </Button>
@@ -320,6 +431,33 @@ export const AISafetyCriticalThinking = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Quick Reference Card */}
+                <div className="mt-6 bg-muted/50 p-4 rounded-lg">
+                  <h5 className="font-semibold mb-3">📝 Quick Reference: Collaboration Prompts That Always Work</h5>
+                  <div className="grid md:grid-cols-2 gap-2 text-sm">
+                    <div className="space-y-1">
+                      <p>• "What's wrong with this answer?"</p>
+                      <p>• "What's missing from this explanation?"</p>
+                      <p>• "Explain this differently"</p>
+                      <p>• "Find the flaws in this argument"</p>
+                    </div>
+                    <div className="space-y-1">
+                      <p>• "Make this more accurate"</p>
+                      <p>• "Add what the other AI missed"</p>
+                      <p>• "Which parts might be hallucinated?"</p>
+                      <p>• "Challenge this advice"</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Warning About Echo Chambers */}
+                <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-950/20">
+                  <AlertTriangle className="w-4 h-4 text-amber-600" />
+                  <AlertDescription>
+                    <strong>⚠️ Echo Chamber Warning:</strong> If all AIs give identical answers, that might mean it's well-established fact ✓ OR they all learned the same wrong thing ✗. Still verify critical information!
+                  </AlertDescription>
+                </Alert>
               </div>
             </CardContent>
           </Card>
@@ -357,7 +495,7 @@ export const AISafetyCriticalThinking = () => {
             </div>
             <div className="flex items-start gap-2">
               <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-              <p><strong>Cross-checking with multiple AIs</strong> is the new gold standard for digital thinking</p>
+              <p><strong>Collaborative AI</strong> transforms you from AI user to AI conductor</p>
             </div>
             <div className="flex items-start gap-2">
               <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
