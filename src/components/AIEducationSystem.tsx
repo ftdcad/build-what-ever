@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Brain, Zap, Shield, Settings, Database, Code, TrendingUp } from "lucide-react";
+import { BookOpen, Brain, Zap, Shield, Settings, Database, Code, TrendingUp, Star, Play } from "lucide-react";
 
 // Import all demo components
 import { TemperatureGauge } from "./TemperatureGauge";
@@ -29,16 +29,40 @@ import { RateLimitingDemo } from "./RateLimitingDemo";
 import { APISecurityScanner } from "./APISecurityScanner";
 import { APICostCalculator } from "./APICostCalculator";
 import { ErrorHandlingPlayground } from "./ErrorHandlingPlayground";
+import { GettingStarted } from "./GettingStarted";
+import { AIGlossary } from "./AIGlossary";
+import { LearningPath } from "./LearningPath";
 
 export const AIEducationSystem = () => {
-  const [activeSection, setActiveSection] = useState("fundamentals");
+  const [activeSection, setActiveSection] = useState("getting-started");
 
   const sections = [
+    {
+      id: "getting-started",
+      title: "Getting Started",
+      icon: <Play className="w-5 h-5" />,
+      description: "Complete beginner's guide to AI fundamentals and concepts",
+      components: []
+    },
+    {
+      id: "glossary",
+      title: "Glossary & Terminology",
+      icon: <BookOpen className="w-5 h-5" />,
+      description: "Searchable definitions with examples and cross-references",
+      components: []
+    },
+    {
+      id: "learning-path",
+      title: "Learning Path Guide",
+      icon: <Star className="w-5 h-5" />,
+      description: "Structured progression from beginner to advanced concepts",
+      components: []
+    },
     {
       id: "fundamentals",
       title: "Core AI Concepts",
       icon: <Brain className="w-5 h-5" />,
-      description: "Essential AI/ML terminology and foundational concepts",
+      description: "Essential AI/ML terminology and foundational concepts with interactive demos",
       components: ["temperature", "context", "embeddings"]
     },
     {
@@ -136,6 +160,18 @@ export const AIEducationSystem = () => {
         {/* Main Content */}
         <div className="flex-1">
           <div className="container mx-auto px-6 py-6">
+            {activeSection === "getting-started" && (
+              <GettingStarted />
+            )}
+
+            {activeSection === "glossary" && (
+              <AIGlossary />
+            )}
+
+            {activeSection === "learning-path" && (
+              <LearningPath />
+            )}
+
             {activeSection === "fundamentals" && (
               <div className="space-y-6">
                 <div>
@@ -143,6 +179,26 @@ export const AIEducationSystem = () => {
                   <p className="text-muted-foreground mb-6">
                     Master the fundamental building blocks of AI systems with interactive demonstrations.
                   </p>
+                  
+                  {/* Enhanced Introduction */}
+                  <Card className="mb-6 border-primary/20 bg-gradient-to-r from-primary/5 to-secondary/5">
+                    <CardContent className="pt-6">
+                      <div className="grid md:grid-cols-3 gap-4 text-sm">
+                        <div>
+                          <h4 className="font-semibold mb-2">Prerequisites:</h4>
+                          <p className="text-muted-foreground">Basic understanding of AI terminology (check Glossary if needed)</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">What you'll learn:</h4>
+                          <p className="text-muted-foreground">How to control AI behavior, manage memory limits, and optimize performance</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Why it matters:</h4>
+                          <p className="text-muted-foreground">These are the essential controls for getting consistent, cost-effective AI results</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
                 
                 <div className="grid gap-6">
