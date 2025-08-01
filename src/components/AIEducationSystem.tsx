@@ -15,6 +15,10 @@ import { ModelComparison } from "./ModelComparison";
 import { HallucinationDetector } from "./HallucinationDetector";
 import { DatabaseComparison } from "./DatabaseComparison";
 import { QueryComparison } from "./QueryComparison";
+import { CompressionAlgorithmsDemo } from "./CompressionAlgorithmsDemo";
+import { AICompressionTechniques } from "./AICompressionTechniques";
+import { RAGCompressionDemo } from "./RAGCompressionDemo";
+import { CompressionLab } from "./CompressionLab";
 
 export const AIEducationSystem = () => {
   const [activeSection, setActiveSection] = useState("fundamentals");
@@ -26,6 +30,13 @@ export const AIEducationSystem = () => {
       icon: <Brain className="w-5 h-5" />,
       description: "Essential AI/ML terminology and foundational concepts",
       components: ["temperature", "context", "embeddings"]
+    },
+    {
+      id: "compression",
+      title: "AI Compression & Optimization",
+      icon: <Code className="w-5 h-5" />,
+      description: "Comprehensive guide to compression algorithms and AI optimization techniques",
+      components: ["classical-compression", "ai-compression", "rag-compression", "compression-lab"]
     },
     {
       id: "databases",
@@ -120,6 +131,24 @@ export const AIEducationSystem = () => {
                 <div className="grid gap-6">
                   <TemperatureGauge />
                   <ContextWindowDemo />
+                </div>
+              </div>
+            )}
+
+            {activeSection === "compression" && (
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">AI Compression & Optimization</h2>
+                  <p className="text-muted-foreground mb-6">
+                    Deep dive into compression algorithms, from classical techniques to AI-specific optimizations and practical applications.
+                  </p>
+                </div>
+                
+                <div className="grid gap-6">
+                  <CompressionAlgorithmsDemo />
+                  <AICompressionTechniques />
+                  <RAGCompressionDemo />
+                  <CompressionLab />
                 </div>
               </div>
             )}
