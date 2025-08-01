@@ -31,14 +31,23 @@ import { APICostCalculator } from "./APICostCalculator";
 import { ErrorHandlingPlayground } from "./ErrorHandlingPlayground";
 import { InteractiveGettingStarted } from "./InteractiveGettingStarted";
 import { EnhancedInteractiveGettingStarted } from "./EnhancedInteractiveGettingStarted";
+import { IntroductionToAI } from "./IntroductionToAI";
 import { AIGlossary } from "./AIGlossary";
 import { LearningPath } from "./LearningPath";
 import { PromptEngineeringFundamentals } from "./PromptEngineeringFundamentals";
 
 export const AIEducationSystem = () => {
-  const [activeSection, setActiveSection] = useState("foundation");
+  const [activeSection, setActiveSection] = useState("introduction");
 
   const sections = [
+    // Introduction Level (10 min) - NEW
+    {
+      id: "introduction",
+      title: "🤝 Introduction to AI (10 min)",
+      icon: <Users className="w-5 h-5" />,
+      description: "Safe space for beginners - analogies, vulnerability awareness, and path selection",
+      components: []
+    },
     // Foundation Level (30 min)
     {
       id: "foundation",
@@ -180,6 +189,10 @@ export const AIEducationSystem = () => {
         {/* Main Content */}
         <div className="flex-1">
           <div className="container mx-auto px-6 py-6">
+            {activeSection === "introduction" && (
+              <IntroductionToAI />
+            )}
+
             {activeSection === "foundation" && (
               <EnhancedInteractiveGettingStarted />
             )}
