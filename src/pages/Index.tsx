@@ -1,8 +1,8 @@
 
-import { ChunkCreator } from "@/components/ChunkCreator";
+import Home from "./Home";
 
 const Index = () => {
-  return <ChunkCreator />;
+  return <Home />;
 };
 
 export default Index;
