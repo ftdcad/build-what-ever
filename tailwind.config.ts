@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -12,7 +13,13 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				sm: '1.5rem',
+				lg: '2rem',
+				xl: '2.5rem',
+				'2xl': '3rem'
+			},
 			screens: {
 				'2xl': '1400px'
 			}
@@ -62,6 +69,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			spacing: {
+				'container': '1rem',
+				'container-sm': '1.5rem', 
+				'container-lg': '2rem',
+				'section': '2rem',
+				'section-sm': '3rem',
+				'section-lg': '4rem',
+				'card': '1rem',
+				'card-sm': '1.5rem',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

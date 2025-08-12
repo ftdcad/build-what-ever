@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { Callout } from "@/components/ui/callout";
 import { ChevronRight, Heart, Coffee, Shield, ArrowRight, User, Zap, Crown } from "lucide-react";
 
 interface IntroductionToAIProps {
@@ -19,7 +19,7 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
       id: "welcome",
       title: "Welcome to Your AI Journey",
       content: (
-        <div className="space-y-6">
+        <div className="content-spacing">
           <div className="text-center space-y-4">
             <Heart className="w-16 h-16 text-primary mx-auto" />
             <h2 className="text-2xl font-bold">You're Safe Here</h2>
@@ -28,22 +28,20 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
             </p>
           </div>
 
-          <Card className="border-green-200 bg-green-50/50 dark:border-green-800 dark:bg-green-950/50">
-            <CardContent className="pt-6">
-              <h3 className="font-semibold text-green-800 dark:text-green-200 mb-2">
-                🐕 Imagine This Scenario...
-              </h3>
-              <p className="text-green-700 dark:text-green-300">
-                You've just been put in the body of someone who has never seen a dog before. 
-                You're standing in a park, and a friendly golden retriever approaches. 
-                You want to pet it, but you have no idea how.
-              </p>
-              <p className="text-green-700 dark:text-green-300 mt-3">
-                <strong>You would need instructions, right?</strong> Step-by-step guidance on how to approach, 
-                where to place your hand, what to watch for in the dog's body language.
-              </p>
-            </CardContent>
-          </Card>
+          <Callout variant="success">
+            <h3 className="font-semibold mb-2">
+              🐕 Imagine This Scenario...
+            </h3>
+            <p className="mb-3">
+              You've just been put in the body of someone who has never seen a dog before. 
+              You're standing in a park, and a friendly golden retriever approaches. 
+              You want to pet it, but you have no idea how.
+            </p>
+            <p>
+              <strong>You would need instructions, right?</strong> Step-by-step guidance on how to approach, 
+              where to place your hand, what to watch for in the dog's body language.
+            </p>
+          </Callout>
 
           <div className="text-center">
             <p className="text-muted-foreground mb-4">
@@ -60,21 +58,21 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
       id: "kitchen-analogy",
       title: "Why AI Isn't Magic (But Can Feel Like It)",
       content: (
-        <div className="space-y-6">
-          <Card className="border-orange-200 bg-orange-50/50 dark:border-orange-800 dark:bg-orange-950/50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-orange-800 dark:text-orange-200">
+        <div className="content-spacing">
+          <Callout variant="warning">
+            <CardHeader className="p-0">
+              <CardTitle className="flex items-center gap-2">
                 <Coffee className="w-5 h-5" />
                 The Kitchen Analogy
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4 text-orange-700 dark:text-orange-300">
+            <div className="space-y-4 mt-4">
               <p>
                 Imagine you've inherited a beautiful kitchen filled with every ingredient and gadget you could want—
                 spices, vegetables, fancy mixers, professional knives, the works.
               </p>
               
-              <div className="bg-white/50 dark:bg-black/20 p-4 rounded-lg">
+              <div className="bg-background/50 card-padding rounded-lg border">
                 <p className="font-semibold mb-2">But there's a catch:</p>
                 <ul className="space-y-1 text-sm">
                   <li>• You don't have a cookbook</li>
@@ -88,24 +86,24 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
                 You'll waste good ingredients trying things that don't work.
               </p>
 
-              <div className="bg-green-100/50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
-                <p className="font-semibold text-green-800 dark:text-green-200 mb-2">
+              <Callout variant="success" className="mt-4">
+                <p className="font-semibold mb-2">
                   Now imagine someone hands you a great, easy-to-follow cookbook:
                 </p>
-                <ul className="space-y-1 text-sm text-green-700 dark:text-green-300">
+                <ul className="space-y-1 text-sm">
                   <li>• You know what goes with what</li>
                   <li>• You learn the tricks (like "don't burn the garlic!")</li>
                   <li>• You feel confident to experiment and create your own dishes</li>
                 </ul>
-              </div>
+              </Callout>
 
               <div className="text-center pt-4">
-                <Badge variant="default" className="bg-orange-600 hover:bg-orange-700">
+                <Badge variant="default">
                   AI works exactly the same way
                 </Badge>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </Callout>
         </div>
       )
     },
@@ -113,8 +111,8 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
       id: "mental-model",
       title: "Your AI Mental Model",
       content: (
-        <div className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
+        <div className="content-spacing">
+          <div className="grid md:grid-cols-2 gap-4">
             <Card>
               <CardHeader>
                 <CardTitle className="text-lg">🥘 Kitchen = AI System</CardTitle>
@@ -160,20 +158,18 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
             </Card>
           </div>
 
-          <Card className="border-blue-200 bg-blue-50/50 dark:border-blue-800 dark:bg-blue-950/50">
-            <CardContent className="pt-6">
-              <div className="text-center space-y-3">
-                <Shield className="w-8 h-8 text-blue-600 mx-auto" />
-                <h3 className="font-semibold text-blue-800 dark:text-blue-200">
-                  Remember: You Can't Break Anything
-                </h3>
-                <p className="text-blue-700 dark:text-blue-300 text-sm">
-                  Just like learning to cook, you might burn a few dishes at first. 
-                  That's completely normal and expected. Every mistake teaches you something valuable.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <Callout variant="info">
+            <div className="text-center space-y-3">
+              <Shield className="w-8 h-8 mx-auto" />
+              <h3 className="font-semibold">
+                Remember: You Can't Break Anything
+              </h3>
+              <p className="text-sm">
+                Just like learning to cook, you might burn a few dishes at first. 
+                That's completely normal and expected. Every mistake teaches you something valuable.
+              </p>
+            </div>
+          </Callout>
         </div>
       )
     },
@@ -181,7 +177,7 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
       id: "assessment",
       title: "Quick Self-Assessment",
       content: (
-        <div className="space-y-6">
+        <div className="content-spacing">
           <div className="text-center space-y-4">
             <h2 className="text-xl font-bold">What's Your Current AI Experience?</h2>
             <p className="text-muted-foreground">
@@ -192,7 +188,7 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
           <div className="grid gap-4">
             <Button
               variant={userLevel === "beginner" ? "default" : "outline"}
-              className="h-auto p-6 text-left flex items-start gap-4"
+              className="h-auto card-padding text-left flex items-start gap-4"
               onClick={() => setUserLevel("beginner")}
             >
               <User className="w-6 h-6 mt-1 flex-shrink-0" />
@@ -206,7 +202,7 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
 
             <Button
               variant={userLevel === "intermediate" ? "default" : "outline"}
-              className="h-auto p-6 text-left flex items-start gap-4"
+              className="h-auto card-padding text-left flex items-start gap-4"
               onClick={() => setUserLevel("intermediate")}
             >
               <Zap className="w-6 h-6 mt-1 flex-shrink-0" />
@@ -220,7 +216,7 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
 
             <Button
               variant={userLevel === "advanced" ? "default" : "outline"}
-              className="h-auto p-6 text-left flex items-start gap-4"
+              className="h-auto card-padding text-left flex items-start gap-4"
               onClick={() => setUserLevel("advanced")}
             >
               <Crown className="w-6 h-6 mt-1 flex-shrink-0" />
@@ -357,7 +353,7 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
+    <div className="max-w-4xl mx-auto container-padding content-spacing">
       {/* Progress */}
       <div className="space-y-2">
         <div className="flex justify-between text-sm text-muted-foreground">
@@ -372,7 +368,7 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
         <CardHeader>
           <CardTitle className="text-2xl">{currentStepData.title}</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="card-padding">
           {currentStepData.content}
         </CardContent>
       </Card>
