@@ -20,64 +20,88 @@ export const ModelComparison = () => {
 
   const models = [
     {
-      id: "gpt-4o",
-      name: "GPT-4o",
+      id: "gpt-5",
+      name: "GPT-5",
       provider: "OpenAI",
-      strengths: ["Multimodal", "Fast", "Reliable"],
-      pricing: "$$$",
-      speed: 85,
-      accuracy: 90,
-      contextWindow: "128K",
-      useCases: ["General tasks", "Image analysis", "Customer support"],
+      strengths: ["Advanced reasoning", "Multimodal", "Tool use"],
+      pricing: "$$$$",
+      speed: 80,
+      accuracy: 96,
+      contextWindow: "200K",
+      useCases: ["Complex analysis", "Research", "Creative writing"],
       icon: "🤖"
     },
     {
-      id: "claude-opus",
-      name: "Claude Opus 4",
+      id: "gpt-4.1-2025",
+      name: "GPT-4.1 (2025)",
+      provider: "OpenAI",
+      strengths: ["Fast", "Reliable", "Multimodal"],
+      pricing: "$$$",
+      speed: 85,
+      accuracy: 92,
+      contextWindow: "128K",
+      useCases: ["General tasks", "Customer support", "Content creation"],
+      icon: "⚡"
+    },
+    {
+      id: "claude-sonnet-4.1",
+      name: "Claude Sonnet 4.1",
       provider: "Anthropic",
       strengths: ["Complex reasoning", "Safety", "Long context"],
-      pricing: "$$$$",
-      speed: 70,
-      accuracy: 95,
+      pricing: "$$$",
+      speed: 75,
+      accuracy: 94,
       contextWindow: "200K",
-      useCases: ["Complex analysis", "Research", "Content creation"],
+      useCases: ["Analysis", "Research", "Ethical AI applications"],
       icon: "🧠"
+    },
+    {
+      id: "claude-opus-4",
+      name: "Claude Opus 4",
+      provider: "Anthropic",
+      strengths: ["Superior reasoning", "Safety", "Complex tasks"],
+      pricing: "$$$$",
+      speed: 65,
+      accuracy: 97,
+      contextWindow: "200K",
+      useCases: ["Research", "Complex analysis", "Strategic planning"],
+      icon: "🎯"
     },
     {
       id: "grok-4",
       name: "Grok-4",
       provider: "xAI",
-      strengths: ["Real-time data", "Humor", "X integration"],
+      strengths: ["Real-time data", "X integration", "Current events"],
       pricing: "$$$",
       speed: 80,
-      accuracy: 85,
+      accuracy: 87,
       contextWindow: "256K",
       useCases: ["Real-time analysis", "Social media", "Current events"],
       icon: "🚀"
     },
     {
-      id: "deepseek-coder",
-      name: "DeepSeek Coder",
-      provider: "DeepSeek",
-      strengths: ["Code generation", "OCR", "Open source"],
-      pricing: "$",
+      id: "o4-mini",
+      name: "o4 Mini",
+      provider: "OpenAI",
+      strengths: ["Fast reasoning", "Coding", "Visual tasks"],
+      pricing: "$$",
       speed: 90,
-      accuracy: 88,
-      contextWindow: "32K",
-      useCases: ["Programming", "Document OCR", "Code review"],
-      icon: "💻"
+      accuracy: 89,
+      contextWindow: "128K",
+      useCases: ["Development", "Quick analysis", "Visual processing"],
+      icon: "⚡"
     },
     {
-      id: "o3",
-      name: "OpenAI o3",
-      provider: "OpenAI",
-      strengths: ["Complex reasoning", "Math", "Planning"],
-      pricing: "$$$$$",
-      speed: 30,
-      accuracy: 98,
-      contextWindow: "128K",
-      useCases: ["Scientific research", "Complex analysis", "Strategic planning"],
-      icon: "🧮"
+      id: "deepseek-r1",
+      name: "DeepSeek R1",
+      provider: "DeepSeek",
+      strengths: ["Reasoning", "Open source", "Cost-effective"],
+      pricing: "$",
+      speed: 85,
+      accuracy: 91,
+      contextWindow: "64K",
+      useCases: ["Programming", "Mathematical reasoning", "Research"],
+      icon: "💻"
     }
   ];
 
@@ -102,11 +126,13 @@ export const ModelComparison = () => {
     
     // Mock responses based on model characteristics
     const mockResponses: Record<string, string> = {
-      "gpt-4o": "🌟 HydroSmart Pro - Your Ultimate Hydration Companion\n\nStay perfectly hydrated with our revolutionary smart water bottle that combines cutting-edge technology with sleek design. Features real-time hydration tracking, smartphone integration, and personalized health insights.",
-      "claude-opus": "**HydroSmart Pro: Intelligent Hydration Management**\n\nThis innovative smart water bottle represents a breakthrough in personal health technology. By continuously monitoring your hydration levels through advanced sensors, it provides data-driven insights into your daily water intake patterns, helping optimize your wellness routine with precision and reliability.",
-      "grok-4": "Meet HydroSmart Pro! 💧 This isn't just a water bottle - it's your hydration buddy that knows when you're slacking on H2O duties. Smart sensors track every sip, sync with your phone, and probably judge your beverage choices (in a helpful way). Because staying hydrated shouldn't require a PhD in remembering to drink water! 🤖",
-      "deepseek-coder": "# HydroSmart Pro\n\n## Features:\n- Real-time hydration level monitoring\n- IoT connectivity via Bluetooth/WiFi\n- Mobile app integration\n- Data analytics for consumption patterns\n- Smart reminder system\n\n**Technical specs:** BPA-free materials, 24oz capacity, 7-day battery life, IP67 water resistance.",
-      "o3": "**HydroSmart Pro: Advanced Hydration Optimization System**\n\nThis sophisticated hydration management device employs multi-sensor arrays to precisely quantify fluid intake, utilizing machine learning algorithms to establish personalized hydration baselines. The integrated IoT framework enables comprehensive health data synthesis, facilitating evidence-based wellness optimization through real-time biometric correlation and predictive hydration modeling."
+      "gpt-5": "🌟 **HydroSmart Pro - Revolutionary Hydration Intelligence**\n\nExperience the future of personal wellness with our AI-powered smart water bottle. Advanced biosensors continuously monitor your hydration status, while machine learning algorithms provide personalized recommendations based on your activity, climate, and health goals. Features seamless smartphone integration and predictive hydration insights.",
+      "gpt-4.1-2025": "💧 **HydroSmart Pro - Your Intelligent Hydration Companion**\n\nStay perfectly hydrated with cutting-edge technology that tracks every sip. Real-time monitoring, smartphone sync, and personalized health insights make optimal hydration effortless. Sleek design meets smart functionality.",
+      "claude-sonnet-4.1": "**HydroSmart Pro: Advanced Hydration Management System**\n\nThis innovative smart water bottle represents a breakthrough in personal health technology. Through continuous monitoring of hydration levels via precision sensors, it delivers evidence-based insights into daily water intake patterns, enabling optimized wellness routines with reliability and scientific accuracy.",
+      "claude-opus-4": "**HydroSmart Pro: Comprehensive Hydration Optimization Platform**\n\nEngineered with sophisticated biometric monitoring capabilities, this intelligent hydration system employs multi-sensor arrays and machine learning algorithms to provide personalized hydration guidance. The integrated health analytics platform offers deep insights into consumption patterns, physiological needs, and optimal timing for fluid intake, supporting evidence-based wellness optimization.",
+      "grok-4": "Meet HydroSmart Pro! 💧 This isn't just a water bottle - it's your hydration buddy that actually knows when you're being lazy about H2O. Smart sensors track every sip, syncs with your phone, and probably judges your beverage choices (in a helpful way). Because staying hydrated shouldn't require a PhD in remembering to drink water! 🤖 #StayHydrated",
+      "o4-mini": "# HydroSmart Pro\n\n## Key Features:\n- Real-time hydration tracking via IoT sensors\n- Mobile app with ML-driven insights\n- 24oz capacity, 7-day battery\n- IP67 waterproof rating\n- Bluetooth/WiFi connectivity\n\n**Perfect for:** Athletes, health enthusiasts, busy professionals\n**Price point:** Premium wellness tech segment",
+      "deepseek-r1": "**HydroSmart Pro Technical Specifications**\n\n```python\nclass HydroSmartPro:\n    def __init__(self):\n        self.sensors = ['conductivity', 'temperature', 'volume']\n        self.connectivity = ['bluetooth_5.0', 'wifi_6']\n        self.battery_life = '7_days'\n        self.ml_features = ['intake_prediction', 'health_correlation']\n    \n    def track_hydration(self):\n        return self.analyze_consumption_patterns()\n```\n\nAdvanced hydration monitoring with real-time data analytics and predictive modeling for optimal wellness outcomes."
     };
 
     setTestResults(prev => ({
@@ -123,11 +149,13 @@ export const ModelComparison = () => {
 
   const calculateMonthlyCost = (modelId: string, usage: number) => {
     const costPerRequest: Record<string, number> = {
-      "gpt-4o": 0.03,
-      "claude-opus": 0.075,
+      "gpt-5": 0.12,
+      "gpt-4.1-2025": 0.03,
+      "claude-sonnet-4.1": 0.05,
+      "claude-opus-4": 0.10,
       "grok-4": 0.025,
-      "deepseek-coder": 0.002,
-      "o3": 0.15
+      "o4-mini": 0.01,
+      "deepseek-r1": 0.001
     };
     
     return (costPerRequest[modelId] || 0.01) * usage;
@@ -140,7 +168,7 @@ export const ModelComparison = () => {
           <span className="text-2xl">⚖️</span>
           AI Model Selection Guide
         </CardTitle>
-        <Badge variant="secondary">Compare Performance & Use Cases</Badge>
+        <Badge variant="secondary">Compare Latest Models & Performance (Updated 2025)</Badge>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="overview" className="space-y-6">
@@ -510,7 +538,7 @@ export const ModelComparison = () => {
                 <p className="text-sm text-muted-foreground mb-2">
                   Customer support, content generation, general Q&A
                 </p>
-                <Badge variant="outline">Recommended: GPT-4o, Grok-4</Badge>
+                <Badge variant="outline">Recommended: GPT-4.1 (2025), o4 Mini</Badge>
               </Card>
 
               <Card className="p-4">
@@ -521,7 +549,7 @@ export const ModelComparison = () => {
                 <p className="text-sm text-muted-foreground mb-2">
                   Research, analysis, strategic planning, complex problem solving
                 </p>
-                <Badge variant="outline">Recommended: Claude Opus 4, OpenAI o3</Badge>
+                <Badge variant="outline">Recommended: GPT-5, Claude Opus 4</Badge>
               </Card>
 
               <Card className="p-4">
@@ -532,7 +560,7 @@ export const ModelComparison = () => {
                 <p className="text-sm text-muted-foreground mb-2">
                   High-volume tasks, development, document processing
                 </p>
-                <Badge variant="outline">Recommended: DeepSeek Coder</Badge>
+                <Badge variant="outline">Recommended: DeepSeek R1, o4 Mini</Badge>
               </Card>
 
               <Card className="p-4">
@@ -543,7 +571,7 @@ export const ModelComparison = () => {
                 <p className="text-sm text-muted-foreground mb-2">
                   Regulated industries, sensitive content, ethical AI
                 </p>
-                <Badge variant="outline">Recommended: Claude Opus 4</Badge>
+                <Badge variant="outline">Recommended: Claude Sonnet 4.1, Claude Opus 4</Badge>
               </Card>
             </div>
           </TabsContent>
