@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -276,12 +277,12 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-green-50 dark:bg-green-950/50 border border-green-200 dark:border-green-800">
                   <div className="w-6 h-6 rounded-full bg-green-600 text-white text-xs flex items-center justify-center font-bold">1</div>
-                  <span className="font-medium dark:text-green-100">🎯 Foundation (30 min)</span>
+                  <span className="font-medium text-green-800 dark:text-green-200">🎯 Foundation (30 min)</span>
                   <ArrowRight className="w-4 h-4 ml-auto text-green-600 dark:text-green-400" />
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-muted">
                   <div className="w-6 h-6 rounded-full bg-muted-foreground text-white text-xs flex items-center justify-center font-bold">2</div>
-                  <span className="dark:text-muted-foreground">⚡ Practitioner (when ready)</span>
+                  <span className="text-muted-foreground dark:text-muted-foreground">⚡ Practitioner (when ready)</span>
                 </div>
               </div>
             )}
@@ -290,11 +291,11 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-muted">
                   <div className="w-6 h-6 rounded-full bg-muted-foreground text-white text-xs flex items-center justify-center font-bold">1</div>
-                  <span className="dark:text-muted-foreground">🎯 Foundation (optional review)</span>
+                  <span className="text-muted-foreground dark:text-muted-foreground">🎯 Foundation (optional review)</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800">
                   <div className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">2</div>
-                  <span className="font-medium dark:text-blue-100">⚡ Practitioner (45 min)</span>
+                  <span className="font-medium text-blue-800 dark:text-blue-200">⚡ Practitioner (45 min)</span>
                   <ArrowRight className="w-4 h-4 ml-auto text-blue-600 dark:text-blue-400" />
                 </div>
               </div>
@@ -304,11 +305,11 @@ export const IntroductionToAI = ({ onComplete }: IntroductionToAIProps = {}) => 
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-muted">
                   <div className="w-6 h-6 rounded-full bg-muted-foreground text-white text-xs flex items-center justify-center font-bold">1</div>
-                  <span className="dark:text-muted-foreground">⚡ Practitioner (quick review recommended)</span>
+                  <span className="text-muted-foreground dark:text-muted-foreground">⚡ Practitioner (quick review recommended)</span>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800">
                   <div className="w-6 h-6 rounded-full bg-purple-600 text-white text-xs flex items-center justify-center font-bold">2</div>
-                  <span className="font-medium dark:text-purple-100">👑 Power User (60 min)</span>
+                  <span className="font-medium text-purple-800 dark:text-purple-200">👑 Power User (60 min)</span>
                   <ArrowRight className="w-4 h-4 ml-auto text-purple-600 dark:text-purple-400" />
                 </div>
               </div>
