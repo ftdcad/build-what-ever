@@ -1,9 +1,11 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Callout } from "@/components/ui/callout";
 import { CheckCircle, ArrowRight, ArrowLeft, Lightbulb, Target, Clock } from "lucide-react";
 
 interface MicroLesson {
@@ -131,7 +133,7 @@ export const EnhancedInteractiveGettingStarted = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="container-padding content-spacing">
       {/* Header */}
       <div>
         <h2 className="text-2xl font-bold mb-2">Foundation: AI Fundamentals (30 minutes)</h2>
@@ -149,7 +151,7 @@ export const EnhancedInteractiveGettingStarted = () => {
         )}
 
         <Card className="mb-6">
-          <CardContent className="pt-6">
+          <CardContent className="card-padding">
             <div className="flex items-center justify-between mb-4">
               <span className="text-sm font-medium">Progress</span>
               <span className="text-sm text-muted-foreground">
@@ -199,21 +201,18 @@ export const EnhancedInteractiveGettingStarted = () => {
           </div>
         </CardHeader>
         
-        <CardContent className="space-y-6">
-          {/* Concept (≤250 words) */}
+        <CardContent className="content-spacing">
+          {/* Concept */}
           <div className="space-y-3">
             <h3 className="font-semibold text-lg">Concept</h3>
             <p className="text-muted-foreground">{lesson.content}</p>
             
-            <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-              <div className="flex items-start gap-2">
-                <Lightbulb className="w-5 h-5 text-blue-600 mt-0.5" />
-                <div>
-                  <h4 className="font-medium text-blue-900 mb-1">Real Example</h4>
-                  <p className="text-blue-800 text-sm">{lesson.example}</p>
-                </div>
+            <Callout variant="info" icon={true}>
+              <div>
+                <h4 className="font-medium mb-1">Real Example</h4>
+                <p className="text-sm">{lesson.example}</p>
               </div>
-            </div>
+            </Callout>
           </div>
 
           {/* Single Diagnostic Question */}
@@ -228,7 +227,7 @@ export const EnhancedInteractiveGettingStarted = () => {
                 <Button
                   key={index}
                   variant={selectedAnswer === index ? "default" : "outline"}
-                  className="justify-start h-auto p-3 text-left"
+                  className="justify-start h-auto card-padding text-left"
                   onClick={() => handleAnswer(index)}
                   disabled={showFeedback}
                 >
@@ -242,12 +241,9 @@ export const EnhancedInteractiveGettingStarted = () => {
 
             {/* Feedback */}
             {showFeedback && (
-              <Alert className="bg-green-50 border-green-200">
-                <CheckCircle className="h-4 w-4 text-green-600" />
-                <AlertDescription className="text-green-800">
-                  {lesson.explanation}
-                </AlertDescription>
-              </Alert>
+              <Callout variant="success">
+                {lesson.explanation}
+              </Callout>
             )}
           </div>
 
@@ -263,9 +259,9 @@ export const EnhancedInteractiveGettingStarted = () => {
           {showPractice && lesson.practiceTask && (
             <div className="space-y-4">
               <h3 className="font-semibold text-lg">Practice Task</h3>
-              <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400 dark:bg-yellow-900/20 dark:border-yellow-600">
-                <p className="text-yellow-800 dark:text-yellow-100">{lesson.practiceTask}</p>
-              </div>
+              <Callout variant="warning">
+                {lesson.practiceTask}
+              </Callout>
               
               <div className="flex gap-2">
                 <Button 
@@ -286,11 +282,11 @@ export const EnhancedInteractiveGettingStarted = () => {
 
           {/* Completion Message */}
           {currentLesson === microLessons.length - 1 && isCompleted && (
-            <Card className="bg-green-50 border-green-200">
-              <CardContent className="pt-6 text-center">
+            <Card className="bg-green-50 border-green-200 dark:bg-green-950/50 dark:border-green-800">
+              <CardContent className="card-padding text-center">
                 <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-green-900 mb-2">Foundation Complete!</h3>
-                <p className="text-green-800 mb-4">
+                <h3 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-2">Foundation Complete!</h3>
+                <p className="text-green-800 dark:text-green-200 mb-4">
                   You've mastered the AI fundamentals. Ready for the next level?
                 </p>
                 <Button className="bg-green-600 hover:bg-green-700">
