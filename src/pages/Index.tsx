@@ -1,8 +1,7 @@
-
-import Home from "./Home";
+import { AIEducationSystem } from "@/components/AIEducationSystem";
 
 const Index = () => {
-  return <Home />;
+  return <AIEducationSystem />;
 };
 
 export default Index;
