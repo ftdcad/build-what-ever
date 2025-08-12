@@ -1,7 +1,8 @@
-import { AIEducationSystem } from "@/components/AIEducationSystem";
+
+import { ChunkCreator } from "@/components/ChunkCreator";
 
 const Index = () => {
-  return <AIEducationSystem />;
+  return <ChunkCreator />;
 };
 
 export default Index;
